@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sunshane.cn/"/>
-  <updated>2020-05-16T03:15:20.000Z</updated>
+  <updated>2020-05-27T17:11:56.963Z</updated>
   <id>http://sunshane.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ES6 Array 之遍历数组的一些方法和方法对比</title>
+    <link href="http://sunshane.cn/2020/05/27/es6-array-zhi-bian-li-shu-zu-de-yi-xie-fang-fa-he-fang-fa-dui-bi/"/>
+    <id>http://sunshane.cn/2020/05/27/es6-array-zhi-bian-li-shu-zu-de-yi-xie-fang-fa-he-fang-fa-dui-bi/</id>
+    <published>2020-05-27T14:54:38.000Z</published>
+    <updated>2020-05-27T17:11:56.963Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;遍历数组的方法对比&quot;&gt;&lt;a href=&quot;#遍历数组的方法对比&quot; class=&quot;headerlink&quot; title=&quot;遍历数组的方法对比&quot;&gt;&lt;/a&gt;遍历数组的方法对比&lt;span class=&quot;github-emoji&quot; style=&quot;color:
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://sunshane.cn/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="JavaScript" scheme="http://sunshane.cn/tags/JavaScript/"/>
+    
+      <category term="ES6" scheme="http://sunshane.cn/tags/ES6/"/>
+    
+      <category term="Array" scheme="http://sunshane.cn/tags/Array/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows 下添加 tree 到 Git Bash 中</title>
