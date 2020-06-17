@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>sunshane 的博客</title>
+  <title>俊杰的博客</title>
   <icon>https://sunshane.cn/icon.png</icon>
-  <subtitle>sunshane</subtitle>
+  <subtitle>JIT | 网络与通信工程 | 通信工程</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sunshane.cn/"/>
