@@ -584,6 +584,8 @@ header .go-back i {
 }
 
 .bg-cover .title {
+    font-weight: 700;
+    font-family: KaiTi;
     font-size: 4rem;
     line-height: 1.85em;
     margin-bottom: 20px;
