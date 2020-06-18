@@ -250,7 +250,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #bf30ac 0%, #0f9d58 100%);
 }
 
 .text-color {
@@ -329,13 +329,13 @@ header .side-nav .mobile-head img {
 
 header .side-nav .mobile-head .logo-name {
     margin-top: -30px;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     font-size: 1.5rem;
 }
 
 header .side-nav .mobile-head .logo-desc {
     margin-top: -10px;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     padding-bottom: 10px;
     font-size: 0.8rem;
     line-height: 1.3rem;
