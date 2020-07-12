@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ES6 Array 之遍历数组的一些方法和方法对比, 俊杰的博客">
+    <meta name="keywords" content="ES6 Class 之操作方法, 俊杰的博客">
     <meta name="description" content="JIT | 网络与通信工程 | 通信工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ES6 Array 之遍历数组的一些方法和方法对比 | 俊杰的博客</title>
+    <title>ES6 Class 之操作方法 | 俊杰的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -376,12 +376,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/26.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ES6 Array 之遍历数组的一些方法和方法对比</h1>
+                    <h1 class="description center-align post-title">ES6 Class 之操作方法</h1>
                 </div>
             </div>
         </div>
@@ -515,8 +515,8 @@
                                 <span class="chip bg-color">ES6</span>
                             </a>
                         
-                            <a href="/tags/Array/">
-                                <span class="chip bg-color">Array</span>
+                            <a href="/tags/Class/">
+                                <span class="chip bg-color">Class</span>
                             </a>
                         
                     </div>
@@ -540,21 +540,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-27
+                    2020-07-12
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-30
+                    2020-07-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    606
                 </div>
                 
 
@@ -567,7 +567,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    2 分
                 </div>
                 
 
@@ -581,273 +581,59 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="遍历数组的方法对比"><a href="#遍历数组的方法对比" class="headerlink" title="遍历数组的方法对比"></a>遍历数组的方法对比<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f603.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f603.png?v8">😃</span></h2><table>
-<thead>
-<tr>
-<th align="center">方法</th>
-<th align="center">简洁程度</th>
-<th align="center">对break/continue的支持</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><a href="#1-for">for</a></td>
-<td align="center">低</td>
-<td align="center"><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8">✔</span></td>
-<td>用于遍历数组，遍历过程受控，可以通过 break 和 continue 实现对遍历的控制</td>
-</tr>
-<tr>
-<td align="center"><a href="#2-forEach">forEach</a></td>
-<td align="center">高</td>
-<td align="center"><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8">❌</span></td>
-<td>ES5 新增。用于遍历数组，遍历过程不受控，会遍历完所有元素</td>
-</tr>
-<tr>
-<td align="center"><a href="#3-every">every</a></td>
-<td align="center">–</td>
-<td align="center"><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8">❌</span></td>
-<td>ES5 新增。用于遍历数组，遍历过程受控，通过设置函数<code>返回值</code>的真假，实现和 break、continue 相同的效果</td>
-</tr>
-<tr>
-<td align="center"><a href="#4-for-in">for in</a></td>
-<td align="center">–</td>
-<td align="center"><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8">✔</span></td>
-<td>ES3 中就存在了。为 object 设计的，数组属于 object，也能用，但有瑕疵。遍历出的元素的索引是 string 类型的，而不是 number 类型。for in 会把自定义属性也遍历出来。</td>
-</tr>
-<tr>
-<td align="center"><a href="#5-for-of">for of</a></td>
-<td align="center">–</td>
-<td align="center"></td>
-<td>ES6 新增。用于遍历自定义的数据结构（该自定义的数据结构不是数组，也不是 object），同时也可以遍历数组。通过修改默认的遍历机制，配合 for of 的使用，使得 for of 的功能非常强大。</td>
-</tr>
-</tbody></table>
-<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><h3 id="1-for"><a href="#1-for" class="headerlink" title="1. for"></a>1. for</h3><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <h2 id="ES5-和-ES6-中操作方法的区别"><a href="#ES5-和-ES6-中操作方法的区别" class="headerlink" title="ES5 和 ES6 中操作方法的区别"></a>ES5 和 ES6 中操作方法的区别</h2><p>操作一个方法，这里的“方法”包括：</p>
+<ol>
+<li>对象实例的方法</li>
+<li>类的静态方法</li>
+</ol>
+<p>对象实例的方法之前已经讲过，这里不再赘述，下面主要讲下类的静态方法。</p>
+<h3 id="1-ES5"><a href="#1-ES5" class="headerlink" title="1. ES5"></a>1. ES5</h3><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/* ES5 中类的声明、实例对象的方法的声明、类的静态方法的声明 */</span>
+<span class="token keyword">let</span> Animal <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type
+<span class="token comment" spellcheck="true">//   this.eat = function () {} // 实例对象的方法挂载在 this 上</span>
+<span class="token punctuation">}</span>
+Animal<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>eat <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 实例对象的方法挂载在 prototype 上，即挂载到类的原型链上</span>
+  Animal<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 调用静态方法 walk()，静态方法就是属于类的，调用时要用类名调用</span>
+  <span class="token comment" spellcheck="true">//   this.walk() // 调用实例对象的 walk() 方法，因为并不存在，所以会报错。this 表示实例对象</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'eat food'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+Animal<span class="token punctuation">.</span>walk <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 静态方法挂载在类上</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am walking.'</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">/* 结果：
-1
-2
-3
-4
-5
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">break</span> <span class="token comment" spellcheck="true">// for 循环中 break 有效</span>
+<span class="token keyword">let</span> dog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">'dog'</span><span class="token punctuation">)</span>
+dog<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+dog<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 报错！静态方法 walk() 在实例对象上是找不到的</span>
+
+<span class="token comment" spellcheck="true">/* 运行结果：
+I am walking.
+eat food
+Uncaught TypeError: dog.walk is not a function
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-ES6"><a href="#2-ES6" class="headerlink" title="2. ES6"></a>2. ES6</h3><p>ES6 中通过使用 static 定义类的静态方法。</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/* ES6 中类的声明、实例对象的方法的声明、类的静态方法的声明 */</span>
+<span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+  constructor <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type
   <span class="token punctuation">}</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">/* 结果：
-1
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">continue</span> <span class="token comment" spellcheck="true">// for 循环中 continue 有效</span>
+  <span class="token comment" spellcheck="true">// 定义实例对象的方法</span>
+  eat <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Animal<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 调用静态方法 walk()，静态方法就是属于类的，调用时要用类名调用</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am eating food...'</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">/* 结果：
-1
-3
-4
-5
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-forEach"><a href="#2-forEach" class="headerlink" title="2. forEach"></a>2. forEach</h3><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">/* 结果：
-1
-2
-3
-4
-5
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">break</span> <span class="token comment" spellcheck="true">// 报错：Unsyntactic break</span>
+  <span class="token comment" spellcheck="true">// 定义类的静态方法</span>
+  <span class="token keyword">static</span> walk <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'walk walk'</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">continue</span> <span class="token comment" spellcheck="true">// 报错：Unsyntactic continue</span>
-  <span class="token punctuation">}</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>相比于 for，forEach 的写法更加简洁，但是它不支持 break 和 continue，它所遍历的是从头到尾的每个元素。</p>
-<p>拓展：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 声明一个长度为 5 的数组 array</span>
-<span class="token keyword">let</span> array <span class="token operator">=</span> <span class="token function">Array</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">// 给数组的所有元素赋值为 1</span>
-array<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  item <span class="token operator">=</span> <span class="token number">1</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">/* 结果：
-(5) [empty × 5]
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可见，forEach 不能给数组元素赋值。</p>
-<h3 id="3-every"><a href="#3-every" class="headerlink" title="3. every"></a>3. every</h3><p>特性：every 遍历数组时，是否继续往下遍历，取决于函数的返回值，返回值为 true 时继续遍历，返回值为 false 时结束遍历，默认的返回值为 false。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-arr<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> 
-  <span class="token comment" spellcheck="true">// 函数返回值默认为 false，因此遍历出第一个元素后就结束遍历</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">/* 结果：
-1
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-arr<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-  <span class="token keyword">return</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// 函数返回值为 true，表示继续遍历</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">/* 结果：
-1
-2
-3
-4
-5
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>上面代码块中函数返回 true 时，every 也能遍历所有元素了，看上去和 forEach 的行为一样。你可能会问，既然在这个时候 every 和 forEach 的行为很像了，那为什么还要新增 every 这个 API 呢？因为我们上面说过，forEach 有弊端，forEach 是不受控的，如果你用 forEach，它必须从头遍历到尾，它不支持 break 和 continue，而 every 虽然也不支持 break 和 continue，但 every 中可以实现和 break、continue 相同的效果，如何实现呢？其实，every 能不能向下遍历取决于函数的返回值，想要达到<code>break</code>的效果，可以使用<code>return false</code>，想要达到<code>continue</code>的效果，可以使用<code>return true</code>，所以说 every 是受控的。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-arr<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// 结束函数的执行，不再继续遍历，相当于实现了 break 的效果</span>
-  <span class="token punctuation">}</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-  <span class="token keyword">return</span> <span class="token boolean">true</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">/* 结果：
-1
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-arr<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 不做处理，相当于实现了 continue 的效果</span>
-  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">return</span> <span class="token boolean">true</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">/* 结果：
-1
-3
-4
-5
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="4-for-in"><a href="#4-for-in" class="headerlink" title="4. for in"></a>4. for in</h3><p>for in 是为可遍历的 object 做遍历的，而不是为数组，只是数组也属于 object，并且数组是可遍历的，所以也能用 for in 遍历，但是用 for in 遍历数组会有瑕疵。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> index <span class="token keyword">in</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> arr<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
+<span class="token keyword">let</span> dog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">'dog'</span><span class="token punctuation">)</span>
+dog<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true">/* 结果：
-0 1
-1 2
-2 3
-3 4
-4 5
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-arr<span class="token punctuation">.</span>pro <span class="token operator">=</span> <span class="token number">8</span> <span class="token comment" spellcheck="true">// 为 arr 数组添加属性 pro（arr 是数组，数组是对象，对象上可以挂属性）</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> index <span class="token keyword">in</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> arr<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">/* 结果：
-0 1
-1 2
-2 3
-3 4
-4 5
-pro 8
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可见，数组的索引不一定是数字，也可以是字符串。用 for in 遍历数组，如果数组上挂载了属性，也会被遍历出来，导致和我们的预期不同，这就是用 for in 遍历数组的瑕疵。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-arr<span class="token punctuation">.</span>pro <span class="token operator">=</span> <span class="token number">8</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> index <span class="token keyword">in</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 使用for in遍历，元素的索引是 string 类型的，而不是 number 类型。即这里的 index 是字符串类型</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 左边 index 是 string 类型，右边 2 是 number 类型（注意：== 只比较值，不比较类型；而 === 既比较类型，也比较值，只要类型不同就返回 false）</span>
-    <span class="token keyword">break</span> <span class="token comment" spellcheck="true">// for in 中支持 break</span>
-  <span class="token punctuation">}</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> arr<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">/* 结果：
-0 1
-1 2
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-arr<span class="token punctuation">.</span>pro <span class="token operator">=</span> <span class="token number">8</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> index <span class="token keyword">in</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 使用for in遍历，元素的索引是 string 类型的，而不是 number 类型。即这里的 index 是字符串类型</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 左边 index 是 string 类型，右边 2 是 number 类型（注意：== 只比较值，不比较类型；而 === 既比较类型，也比较值，只要类型不同就返回 false）</span>
-    <span class="token keyword">continue</span> <span class="token comment" spellcheck="true">// for in 中支持 continue</span>
-  <span class="token punctuation">}</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> arr<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">/* 结果：
-0 1
-1 2
-3 4
-4 5
-pro 8
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>上面的 if 条件判断中，如果想使用<code>===</code>，可以将<code>index == 2</code>换成<code>index * 1 === 2</code>或者<code>+index === 2</code>或者<code>index === '2'</code></p>
-<p>字符串中只有数字时，可以通过乘 1 或在字符串前加个加号将字符串转换为 number 类型：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> test <span class="token operator">=</span> <span class="token string">'00023'</span> <span class="token comment" spellcheck="true">// 字符串中只有数字</span>
-<span class="token keyword">var</span> test1 <span class="token operator">=</span> test <span class="token operator">*</span> <span class="token number">1</span> <span class="token comment" spellcheck="true">// 乘以 1 转换成 number 类型</span>
-<span class="token keyword">var</span> test2 <span class="token operator">=</span> <span class="token operator">+</span>test <span class="token comment" spellcheck="true">// 前面加个加号转换成 number 类型</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>test<span class="token punctuation">,</span> <span class="token keyword">typeof</span> <span class="token punctuation">(</span>test<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 00023 string</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>test1<span class="token punctuation">,</span> <span class="token keyword">typeof</span> <span class="token punctuation">(</span>test1<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 23 "number"</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>test2<span class="token punctuation">,</span> <span class="token keyword">typeof</span> <span class="token punctuation">(</span>test2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 23 "number"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="5-for-of"><a href="#5-for-of" class="headerlink" title="5. for of"></a>5. for of</h3><p>for of 用于遍历自定义的数据结构（该自定义的数据结构不是数组，也不是 object），同时也可以遍历数组。</p>
-<h4 id="5-1-遍历数组"><a href="#5-1-遍历数组" class="headerlink" title="5.1 遍历数组"></a>5.1 遍历数组</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> item <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">/* 结果：
-1
-2
-3
-4
-5
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="5-2-遍历自定义的数据结构"><a href="#5-2-遍历自定义的数据结构" class="headerlink" title="5.2 遍历自定义的数据结构"></a>5.2 遍历自定义的数据结构</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 假设有 A、B、C 三类商品，每类商品下有不同价格的商品，现就价格进行如下定义：</span>
-<span class="token keyword">const</span> Price <span class="token operator">=</span> <span class="token punctuation">{</span>
-  A<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">2.3</span><span class="token punctuation">,</span> <span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token number">4.5</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  B<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  C<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">0.8</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">1.2</span><span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如果想要找出每类商品中的最低价，该怎么实现呢？</p>
-<p>我们先用<code>for in</code>遍历</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> Price<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> Price<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">/* 结果：
-A (3) [2.3, 1.5, 4.5]
-B (2) [3, 5]
-C (3) [0.8, 0.5, 1.2]
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如果想要<code>直接</code>遍历出各类商品中的最低价，<code>for in</code>无法实现，需要再做排序等其它操作。</p>
-<p>我们再用<code>for of</code>遍历</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// to do</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span class="token comment" spellcheck="true">/* 运行结果：
+walk walk
+I am eating food...
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>那么，在实际开发中，什么时候用实例对象的方法，什么时候用类的静态方法呢？这里可以给大家做一个小小的建议，如果说你的这个方法依赖于对象的某些属性或方法，那么此方法就必须定义为实例对象的方法，也就是说这个方法的内部要引用实例对象的一些信息；反之，如果说这个方法里面不会设计到实例对象的内容，那就用类的静态方法。其实非常简单，类的静态方法拿不到当前的的实例对象。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -891,7 +677,7 @@ C (3) [0.8, 0.5, 1.2]
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sunshane.cn/archives/c18c9db4.html">https://sunshane.cn/archives/c18c9db4.html</a>
+                    <a href="https://sunshane.cn/archives/a52095f.html">https://sunshane.cn/archives/a52095f.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -937,8 +723,8 @@ C (3) [0.8, 0.5, 1.2]
                                     <span class="chip bg-color">ES6</span>
                                 </a>
                             
-                                <a href="/tags/Array/">
-                                    <span class="chip bg-color">Array</span>
+                                <a href="/tags/Class/">
+                                    <span class="chip bg-color">Class</span>
                                 </a>
                             
                         </div>
@@ -1109,7 +895,7 @@ C (3) [0.8, 0.5, 1.2]
         repo: 'Shane678.github.io',
         owner: 'Shane678',
         admin: "Shane678",
-        id: '2020-05-27T22-54-38',
+        id: '2020-07-12T22-43-47',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1400,18 +1186,18 @@ C (3) [0.8, 0.5, 1.2]
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/archives/2ed88c32.html">
+                <a href="/archives/b4ab4d3f.html">
                     <div class="card-image">
                         
-                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/20.jpg" class="responsive-img" alt="声明变量的关键字 var 与 let 的区别">
+                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/27.jpg" class="responsive-img" alt="ES6 Class 之继承类">
                         
-                        <span class="card-title">声明变量的关键字 var 与 let 的区别</span>
+                        <span class="card-title">ES6 Class 之继承类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JavaScript 中声明变量的关键字 var 与 let 的区别
+                            ES5 和 ES6 中继承类的区别
                         
                     </div>
                     <div class="publish-info">
@@ -1441,8 +1227,8 @@ C (3) [0.8, 0.5, 1.2]
                         <span class="chip bg-color">ES6</span>
                     </a>
                     
-                    <a href="/tags/Scope/">
-                        <span class="chip bg-color">Scope</span>
+                    <a href="/tags/Class/">
+                        <span class="chip bg-color">Class</span>
                     </a>
                     
                 </div>
@@ -1456,23 +1242,23 @@ C (3) [0.8, 0.5, 1.2]
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/archives/9f75cef.html">
+                <a href="/archives/cd36a7a7.html">
                     <div class="card-image">
                         
-                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/wallhaven-0wjr6q.jpg" class="responsive-img" alt="Windows 下添加 tree 到 Git Bash 中">
+                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/25.jpg" class="responsive-img" alt="ES6 Class 之读写属性">
                         
-                        <span class="card-title">Windows 下添加 tree 到 Git Bash 中</span>
+                        <span class="card-title">ES6 Class 之读写属性</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            解决在 Git Bash 里面输入命令 tree，出现 bash: /usr/bin/tree: No such file or directory 提示的问题
+                            ES5 和 ES6 中读写属性的区别
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-12
                             </span>
                         <span class="publish-author">
                             
@@ -1489,16 +1275,16 @@ C (3) [0.8, 0.5, 1.2]
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Windows/">
-                        <span class="chip bg-color">Windows</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
-                    <a href="/tags/Git-Bash/">
-                        <span class="chip bg-color">Git Bash</span>
+                    <a href="/tags/ES6/">
+                        <span class="chip bg-color">ES6</span>
                     </a>
                     
-                    <a href="/tags/tree/">
-                        <span class="chip bg-color">tree</span>
+                    <a href="/tags/Class/">
+                        <span class="chip bg-color">Class</span>
                     </a>
                     
                 </div>
