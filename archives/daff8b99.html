@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ES6 Class 之继承类, 俊杰的博客">
+    <meta name="keywords" content="ES6 对象之 Map, 俊杰的博客">
     <meta name="description" content="JIT | 网络与通信工程 | 通信工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ES6 Class 之继承类 | 俊杰的博客</title>
+    <title>ES6 对象之 Map | 俊杰的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -376,12 +376,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/27.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/35.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ES6 Class 之继承类</h1>
+                    <h1 class="description center-align post-title">ES6 对象之 Map</h1>
                 </div>
             </div>
         </div>
@@ -515,8 +515,8 @@
                                 <span class="chip bg-color">ES6</span>
                             </a>
                         
-                            <a href="/tags/Class/">
-                                <span class="chip bg-color">Class</span>
+                            <a href="/tags/Map/">
+                                <span class="chip bg-color">Map</span>
                             </a>
                         
                     </div>
@@ -540,21 +540,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-12
+                    2020-07-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-12
+                    2020-07-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    841
+                    905
                 </div>
                 
 
@@ -567,7 +567,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -581,87 +581,115 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="ES5-和-ES6-中继承类的区别"><a href="#ES5-和-ES6-中继承类的区别" class="headerlink" title="ES5 和 ES6 中继承类的区别"></a>ES5 和 ES6 中继承类的区别</h2><p>假设有一个 Animal 类，现在想要定义一个 Dog 类，这个 Dog 类要继承 Animal 类。那么该怎么做呢？</p>
-<h3 id="1-ES5"><a href="#1-ES5" class="headerlink" title="1. ES5"></a>1. ES5</h3><p>我们前面讲过，ES5 中，声明类的函数就是类的构造函数，至少这个函数起到了构造函数的作用。现在我们想继承 Animal 这个父类，就需要在声明子类 Dog 类的这个函数中先运行一遍 Animal 的构造函数，并且把实例对象的指针指向当前的 Dog 类。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/* ES5 中有很多继承方法，这里只举一个 */</span>
-<span class="token keyword">let</span> Animal <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type
-<span class="token punctuation">}</span>
-Animal<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>eat <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  Animal<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am eating food.'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-Animal<span class="token punctuation">.</span>walk <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am walking.'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">// 定义子类 Dog，并继承父类 Animal 构造函数中的属性和方法</span>
-<span class="token keyword">let</span> Dog <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 初始化父类的构造函数（下面 call 方法的作用是将 Animal 类中的 this 指向到当前类（Dog 类）的实例对象上去，</span>
-  <span class="token comment" spellcheck="true">// 这就能让父类的（构造函数中的）属性和方法挂载到当前的实例对象上，也就实现了“一部分”继承（只继承了父类构造函数中的属性和方法，未继承父类原型链上的属性和方法）；</span>
-  <span class="token comment" spellcheck="true">// 后面的'dog'是父类构造函数需要传的参数）</span>
-  Animal<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">'dog'</span><span class="token punctuation">)</span>
-  <span class="token comment" spellcheck="true">// 给 Dog 类的实例对象挂载 run 方法</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>run <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I can run.'</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 子类继承父类的原型链，prototype 是对象，是引用类型，这边赋的是地址值</span>
-Dog<span class="token punctuation">.</span>prototype <span class="token operator">=</span> Animal<span class="token punctuation">.</span>prototype
-
-<span class="token keyword">let</span> dog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-dog<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
+                <h1 id="ES6-对象之-Map"><a href="#ES6-对象之-Map" class="headerlink" title="ES6 对象之 Map"></a>ES6 对象之 Map</h1><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 实例化 Map 对象</span>
+<span class="token keyword">let</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Map(0) {}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 实例化 Map 对象，同时进行初始化赋值，赋值内容要求是可遍历的对象，并且该对象内的元素还得是形式为 [key，value] 的数组</span>
+<span class="token comment" spellcheck="true">// 错误写法：</span>
+<span class="token keyword">let</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Uncaught TypeError: Iterator value 1 is not an entry object</span>
+<span class="token comment" spellcheck="true">// 正确写法：</span>
+<span class="token keyword">let</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Map(2) {1 => 2, 3 => 4}</span>
+<span class="token comment" spellcheck="true">// 表面上看 Map 的数据结构跟 Object 的 key-value 形式没有太大区别，</span>
+<span class="token comment" spellcheck="true">// 但事实上，Map 中的 key 可以是任意类型的值（注意和 Set 的区别，Set 是里面的每个元素可以为任意值）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 设置 Map 对象中键的值</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 上面的两行代码效果等同于 let map = new Map([[1, 2], [3, 4]])</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Map(2) {1 => 2, 3 => 4}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 设置 Map 对象中键的值</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 设置 Map 对象中键的值，这里重新设置了键为“1”的值，相当于实现了修改的功能</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Map(2) {1 => 3, 3 => 4}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 根据“key”删除对应的键值对</span>
+map<span class="token punctuation">.</span><span class="token keyword">delete</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Map(1) {3 => 4}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 清空全部数据</span>
+map<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Map(0) {}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 通过 size 属性获取 Map 中的数据数量</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span>size<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 通过 has() 方法，根据“key”值查找数据是否存在</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 通过 get() 方法，根据“key”值获取对应的“value”值</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 3</span>
+<span class="token comment" spellcheck="true">// 通过 keys() 方法，获取所有 key</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// MapIterator {1, 3}</span>
+<span class="token comment" spellcheck="true">// 通过 values() 方法，获取所有 value</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// MapIterator {3, 4}</span>
+<span class="token comment" spellcheck="true">// 通过 entries() 方法，获取所有键值对</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// MapIterator {1 => 3, 3 => 4}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript">map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'value-1'</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'value-3'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 使用 forEach() 方法遍历 Map 对象（注意：第一个参数是“键值对”中的“值”，第二个参数是“键值对”中的“键”）</span>
+map<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true">/* 运行结果：
-I am walking.
-I am eating food.
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可以看到，用这种方式实现继承需要做两步操作：一是初始化父类的构造函数，二是改变子类的原型链指向。</p>
-<p>好像有点小麻烦……那 ES6 中继承一个类是不是会简单点呢？我们往下看。</p>
-<h3 id="2-ES6"><a href="#2-ES6" class="headerlink" title="2. ES6"></a>2. ES6</h3><p>ES6 的继承很简单，用一个单词（extends）就能实现啦。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/* ES6 中继承一个类 */</span>
-<span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
-  constructor <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type
-  <span class="token punctuation">}</span>
-  <span class="token comment" spellcheck="true">// 定义实例对象的方法</span>
-  eat <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    Animal<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 调用静态方法 walk()，静态方法就是属于类的，调用时要用类名调用</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am eating food...'</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  <span class="token comment" spellcheck="true">// 定义类的静态方法</span>
-  <span class="token keyword">static</span> walk <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'walk walk'</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
+value-1 1
+value-3 3
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript">map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'value-1'</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'value-3'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 使用 for of 遍历 Map 对象</span>
+<span class="token comment" spellcheck="true">// 注意 1：Map 对象中的元素是形式为 [key，value] 的数组哦</span>
+<span class="token comment" spellcheck="true">// 注意 2：for of 的 of 后面跟的必须是可遍历的对象哦</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span> <span class="token keyword">of</span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">// 声明 Dog 类，同时继承 Animal 类</span>
-<span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 编写构造函数</span>
-  constructor <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">super</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">2</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">let</span> dog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token string">'dog'</span><span class="token punctuation">)</span>
-dog<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dog<span class="token punctuation">)</span>
-
 <span class="token comment" spellcheck="true">/* 运行结果：
-walk walk
-I am eating food...
-Dog {type: "dog", age: 2}
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>上面的代码在声明 Dog 类时，如果构造函数中只需继承父类的构造函数，即没有 <code>this.age = 2</code> 这行代码时，这块代码也可以省略不写，即下面这块代码可以省略不写：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">  constructor <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">super</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>另外，父类的构造函数中如果需要传参数，子类那边继承父类的构造函数时也要传参数，也就是 <code>super()</code> 函数也要传参数，就像上面传了个 <code>type</code> 进来，你甚至可以写成这样：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">  constructor <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token string">'panda'</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>总之，父类的构造函数中如果需要传参数，子类那边的 <code>super()</code> 函数就要传参数。</p>
+1 "value-1"
+3 "value-3"
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 注意：关于“键”的类型，Map 对象中“键”的类型是任意的</span>
+<span class="token keyword">let</span> o <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'o'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Map(3) {1 => "value-1", 3 => "value-3", ƒ => 4}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 注意：关于“键”的顺序，遍历的结果会按照“键”的原始插入顺序排序</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'value-10'</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'value-1'</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'value-3'</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'value-777'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> val<span class="token punctuation">]</span> <span class="token keyword">of</span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> val<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+map<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>val<span class="token punctuation">,</span> key<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">/* 运行结果：
+Map(3) {10 => "value-10", 1 => "value-777", 3 => "value-3"}[[Entries]]0: {10 => "value-10"}1: {1 => "value-777"}2: {3 => "value-3"}size: (...)__proto__: Map
+10 "value-10"
+1 "value-777"
+3 "value-3"
+value-10 10
+value-777 1
+value-3 3
+*/</span>
+<span class="token comment" spellcheck="true">// 此外，Map 类型的性能较好，以后在存储数据时，可以考虑使用字典型的数据结构 Map 数据类型替代 Object</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -705,7 +733,7 @@ Dog {type: "dog", age: 2}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sunshane.cn/archives/b4ab4d3f.html">https://sunshane.cn/archives/b4ab4d3f.html</a>
+                    <a href="https://sunshane.cn/archives/daff8b99.html">https://sunshane.cn/archives/daff8b99.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -751,8 +779,8 @@ Dog {type: "dog", age: 2}
                                     <span class="chip bg-color">ES6</span>
                                 </a>
                             
-                                <a href="/tags/Class/">
-                                    <span class="chip bg-color">Class</span>
+                                <a href="/tags/Map/">
+                                    <span class="chip bg-color">Map</span>
                                 </a>
                             
                         </div>
@@ -923,7 +951,7 @@ Dog {type: "dog", age: 2}
         repo: 'Shane678.github.io',
         owner: 'Shane678',
         admin: "Shane678",
-        id: '2020-07-12T23-04-04',
+        id: '2020-07-19T21-57-45',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1210,28 +1238,29 @@ Dog {type: "dog", age: 2}
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/archives/cfa4ba82.html">
+                <a href="/archives/daff8b99.html">
                     <div class="card-image">
                         
-                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/28.jpg" class="responsive-img" alt="ES6 Function 之参数默认值的处理">
+                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/35.jpg" class="responsive-img" alt="ES6 对象之 Map">
                         
-                        <span class="card-title">ES6 Function 之参数默认值的处理</span>
+                        <span class="card-title">ES6 对象之 Map</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ES5 和 ES6 中参数默认值处理的区别
+                            ES6 中的 Map 对象
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1244,6 +1273,7 @@ Dog {type: "dog", age: 2}
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1255,8 +1285,8 @@ Dog {type: "dog", age: 2}
                         <span class="chip bg-color">ES6</span>
                     </a>
                     
-                    <a href="/tags/Function/">
-                        <span class="chip bg-color">Function</span>
+                    <a href="/tags/Map/">
+                        <span class="chip bg-color">Map</span>
                     </a>
                     
                 </div>
@@ -1270,23 +1300,23 @@ Dog {type: "dog", age: 2}
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/archives/a52095f.html">
+                <a href="/archives/af4604fe.html">
                     <div class="card-image">
                         
-                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/26.jpg" class="responsive-img" alt="ES6 Class 之操作方法">
+                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/34.jpg" class="responsive-img" alt="ES6 对象之 Set">
                         
-                        <span class="card-title">ES6 Class 之操作方法</span>
+                        <span class="card-title">ES6 对象之 Set</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ES5 和 ES6 中操作方法的区别
+                            ES6 中的 Set 对象
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
                             </span>
                         <span class="publish-author">
                             
@@ -1311,8 +1341,8 @@ Dog {type: "dog", age: 2}
                         <span class="chip bg-color">ES6</span>
                     </a>
                     
-                    <a href="/tags/Class/">
-                        <span class="chip bg-color">Class</span>
+                    <a href="/tags/Set/">
+                        <span class="chip bg-color">Set</span>
                     </a>
                     
                 </div>
