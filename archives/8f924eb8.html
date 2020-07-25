@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ES6 Class 之操作方法, 俊杰的博客">
+    <meta name="keywords" content="ES6 Template 之 Tag 函数, 俊杰的博客">
     <meta name="description" content="JIT | 网络与通信工程 | 通信工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ES6 Class 之操作方法 | 俊杰的博客</title>
+    <title>ES6 Template 之 Tag 函数 | 俊杰的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -376,12 +376,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/26.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/40.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ES6 Class 之操作方法</h1>
+                    <h1 class="description center-align post-title">ES6 Template 之 Tag 函数</h1>
                 </div>
             </div>
         </div>
@@ -515,8 +515,16 @@
                                 <span class="chip bg-color">ES6</span>
                             </a>
                         
-                            <a href="/tags/Class/">
-                                <span class="chip bg-color">Class</span>
+                            <a href="/tags/String/">
+                                <span class="chip bg-color">String</span>
+                            </a>
+                        
+                            <a href="/tags/Template/">
+                                <span class="chip bg-color">Template</span>
+                            </a>
+                        
+                            <a href="/tags/Tag/">
+                                <span class="chip bg-color">Tag</span>
                             </a>
                         
                     </div>
@@ -540,7 +548,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-12
+                    2020-07-25
                 </div>
                 
 
@@ -554,7 +562,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    606
+                    341
                 </div>
                 
 
@@ -567,7 +575,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -581,59 +589,51 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="ES5-和-ES6-中操作方法的区别"><a href="#ES5-和-ES6-中操作方法的区别" class="headerlink" title="ES5 和 ES6 中操作方法的区别"></a>ES5 和 ES6 中操作方法的区别</h2><p>操作一个方法，这里的“方法”包括：</p>
-<ol>
-<li>对象实例的方法</li>
-<li>类的静态方法</li>
-</ol>
-<p>对象实例的方法之前已经讲过，这里不再赘述，下面主要讲下类的静态方法。</p>
-<h3 id="1-ES5"><a href="#1-ES5" class="headerlink" title="1. ES5"></a>1. ES5</h3><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/* ES5 中类的声明、实例对象的方法的声明、类的静态方法的声明 */</span>
-<span class="token keyword">let</span> Animal <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type
-<span class="token comment" spellcheck="true">//   this.eat = function () {} // 实例对象的方法挂载在 this 上</span>
-<span class="token punctuation">}</span>
-Animal<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>eat <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 实例对象的方法挂载在 prototype 上，即挂载到类的原型链上</span>
-  Animal<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 调用静态方法 walk()，静态方法就是属于类的，调用时要用类名调用</span>
-  <span class="token comment" spellcheck="true">//   this.walk() // 调用实例对象的 walk() 方法，因为并不存在，所以会报错。this 表示实例对象</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'eat food'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-Animal<span class="token punctuation">.</span>walk <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 静态方法挂载在类上</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am walking.'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+                <h1 id="ES6-Template-之-Tag-函数"><a href="#ES6-Template-之-Tag-函数" class="headerlink" title="ES6 Template 之 Tag 函数"></a>ES6 Template 之 Tag 函数</h1><h2 id="字符串包含变量或表达式"><a href="#字符串包含变量或表达式" class="headerlink" title="字符串包含变量或表达式"></a>字符串包含变量或表达式</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">20</span>
+<span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token string">'javascript'</span>
+<span class="token comment" spellcheck="true">// ES5 的做法：利用字符串拼接的方式</span>
+<span class="token keyword">const</span> str1 <span class="token operator">=</span> <span class="token string">'my age is '</span> <span class="token operator">+</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">', i love '</span> <span class="token operator">+</span> c
+<span class="token comment" spellcheck="true">// ES6 的做法：使用反引号（`）和 ${}</span>
+<span class="token keyword">const</span> str2 <span class="token operator">=</span> <span class="token template-string"><span class="token string">`my age is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>a <span class="token operator">+</span> b<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, i love </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>c<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// my age is 30, i love javascript</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// my age is 30, i love javascript</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="字符串包含逻辑运算"><a href="#字符串包含逻辑运算" class="headerlink" title="字符串包含逻辑运算"></a>字符串包含逻辑运算</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/* ES5 的做法 */</span>
 
-<span class="token keyword">let</span> dog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">'dog'</span><span class="token punctuation">)</span>
-dog<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-dog<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 报错！静态方法 walk() 在实例对象上是找不到的</span>
-
-<span class="token comment" spellcheck="true">/* 运行结果：
-I am walking.
-eat food
-Uncaught TypeError: dog.walk is not a function
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-ES6"><a href="#2-ES6" class="headerlink" title="2. ES6"></a>2. ES6</h3><p>ES6 中通过使用 static 定义类的静态方法。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/* ES6 中类的声明、实例对象的方法的声明、类的静态方法的声明 */</span>
-<span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
-  constructor <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type
-  <span class="token punctuation">}</span>
-  <span class="token comment" spellcheck="true">// 定义实例对象的方法</span>
-  eat <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    Animal<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 调用静态方法 walk()，静态方法就是属于类的，调用时要用类名调用</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am eating food...'</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  <span class="token comment" spellcheck="true">// 定义类的静态方法</span>
-  <span class="token keyword">static</span> walk <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'walk walk'</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
+<span class="token keyword">const</span> retailPrice <span class="token operator">=</span> <span class="token number">20</span> <span class="token comment" spellcheck="true">// 零售价</span>
+<span class="token keyword">const</span> wholeSalePrice <span class="token operator">=</span> <span class="token number">16</span> <span class="token comment" spellcheck="true">// 批发价</span>
+<span class="token keyword">const</span> type <span class="token operator">=</span> <span class="token string">'retail'</span>
+<span class="token keyword">let</span> showTxt <span class="token operator">=</span> <span class="token string">''</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'retail'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  showTxt <span class="token operator">=</span> <span class="token string">'您此次的购买单价是：'</span> <span class="token operator">+</span> retailPrice
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  showTxt <span class="token operator">=</span> <span class="token string">'您此次的购买批发价是：'</span> <span class="token operator">+</span> wholeSalePrice
 <span class="token punctuation">}</span>
-<span class="token keyword">let</span> dog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">'dog'</span><span class="token punctuation">)</span>
-dog<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>showTxt<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 您此次的购买单价是：20</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/* ES6 的做法：使用 tag（标签） 函数解决字符串模板问题 */</span>
 
-<span class="token comment" spellcheck="true">/* 运行结果：
-walk walk
-I am eating food...
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>那么，在实际开发中，什么时候用实例对象的方法，什么时候用类的静态方法呢？这里可以给大家做一个小小的建议，如果说你的这个方法依赖于对象的某些属性或方法，那么此方法就必须定义为实例对象的方法，也就是说这个方法的内部要引用实例对象的一些信息；反之，如果说这个方法里面不会设计到实例对象的内容，那就用类的静态方法。其实非常简单，类的静态方法拿不到当前的的实例对象。</p>
+<span class="token comment" spellcheck="true">/**
+ *
+ * @param {Array} strings 字符串模板数组
+ * @param {*} type 变量
+ */</span>
+<span class="token comment" spellcheck="true">// 定义一个 tag 函数</span>
+<span class="token keyword">function</span> Price <span class="token punctuation">(</span>strings<span class="token punctuation">,</span> type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> s1 <span class="token operator">=</span> strings<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+  <span class="token keyword">let</span> s2 <span class="token operator">=</span> strings<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+  <span class="token keyword">const</span> retailPrice <span class="token operator">=</span> <span class="token number">20</span> <span class="token comment" spellcheck="true">// 零售价</span>
+  <span class="token keyword">const</span> wholeSalePrice <span class="token operator">=</span> <span class="token number">16</span> <span class="token comment" spellcheck="true">// 批发价</span>
+  <span class="token keyword">let</span> showTxt
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'retail'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    showTxt <span class="token operator">=</span> <span class="token string">'购买单价是：'</span> <span class="token operator">+</span> retailPrice
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    showTxt <span class="token operator">=</span> <span class="token string">'购买批发价是：'</span> <span class="token operator">+</span> wholeSalePrice
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>s1<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>showTxt<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>s2<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 调用该 tag 函数</span>
+<span class="token keyword">let</span> showTxt <span class="token operator">=</span> Price<span class="token template-string"><span class="token string">`您此次的</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token string">'retail'</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">，全市最低价啊`</span></span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>showTxt<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 您此次的购买单价是：20，全市最低价啊</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -677,7 +677,7 @@ I am eating food...
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sunshane.cn/archives/a52095f.html">https://sunshane.cn/archives/a52095f.html</a>
+                    <a href="https://sunshane.cn/archives/8f924eb8.html">https://sunshane.cn/archives/8f924eb8.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -723,8 +723,16 @@ I am eating food...
                                     <span class="chip bg-color">ES6</span>
                                 </a>
                             
-                                <a href="/tags/Class/">
-                                    <span class="chip bg-color">Class</span>
+                                <a href="/tags/String/">
+                                    <span class="chip bg-color">String</span>
+                                </a>
+                            
+                                <a href="/tags/Template/">
+                                    <span class="chip bg-color">Template</span>
+                                </a>
+                            
+                                <a href="/tags/Tag/">
+                                    <span class="chip bg-color">Tag</span>
                                 </a>
                             
                         </div>
@@ -895,7 +903,7 @@ I am eating food...
         repo: 'Shane678.github.io',
         owner: 'Shane678',
         admin: "Shane678",
-        id: '2020-07-12T22-43-47',
+        id: '2020-07-25T22-49-39',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1182,28 +1190,29 @@ I am eating food...
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/archives/b4ab4d3f.html">
+                <a href="/archives/8f924eb8.html">
                     <div class="card-image">
                         
-                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/27.jpg" class="responsive-img" alt="ES6 Class 之继承类">
+                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/40.jpg" class="responsive-img" alt="ES6 Template 之 Tag 函数">
                         
-                        <span class="card-title">ES6 Class 之继承类</span>
+                        <span class="card-title">ES6 Template 之 Tag 函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ES5 和 ES6 中继承类的区别
+                            ES5 中字符串包含变量或表达式、包含逻辑运算怎么办？ES6 有更优雅便捷的方式吗？
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1216,6 +1225,7 @@ I am eating food...
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1227,8 +1237,16 @@ I am eating food...
                         <span class="chip bg-color">ES6</span>
                     </a>
                     
-                    <a href="/tags/Class/">
-                        <span class="chip bg-color">Class</span>
+                    <a href="/tags/String/">
+                        <span class="chip bg-color">String</span>
+                    </a>
+                    
+                    <a href="/tags/Template/">
+                        <span class="chip bg-color">Template</span>
+                    </a>
+                    
+                    <a href="/tags/Tag/">
+                        <span class="chip bg-color">Tag</span>
                     </a>
                     
                 </div>
@@ -1242,23 +1260,23 @@ I am eating food...
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/archives/cd36a7a7.html">
+                <a href="/archives/229f64b9.html">
                     <div class="card-image">
                         
-                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/25.jpg" class="responsive-img" alt="ES6 Class 之读写属性">
+                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/39.jpg" class="responsive-img" alt="ES6 Template 之字符串换行">
                         
-                        <span class="card-title">ES6 Class 之读写属性</span>
+                        <span class="card-title">ES6 Template 之字符串换行</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ES5 和 ES6 中读写属性的区别
+                            ES5 中字符串换行怎么办？ES6 有更优雅便捷的方式吗？
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-25
                             </span>
                         <span class="publish-author">
                             
@@ -1283,8 +1301,12 @@ I am eating food...
                         <span class="chip bg-color">ES6</span>
                     </a>
                     
-                    <a href="/tags/Class/">
-                        <span class="chip bg-color">Class</span>
+                    <a href="/tags/String/">
+                        <span class="chip bg-color">String</span>
+                    </a>
+                    
+                    <a href="/tags/Template/">
+                        <span class="chip bg-color">Template</span>
                     </a>
                     
                 </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sunshane.cn/"/>
-  <updated>2020-07-25T10:51:50.221Z</updated>
+  <updated>2020-07-25T15:03:46.770Z</updated>
   <id>https://sunshane.cn/</id>
   
   <author>
@@ -15,6 +15,74 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ES6 Template 之 Tag 函数</title>
+    <link href="https://sunshane.cn/archives/8f924eb8.html"/>
+    <id>https://sunshane.cn/archives/8f924eb8.html</id>
+    <published>2020-07-25T14:49:39.000Z</published>
+    <updated>2020-07-25T15:03:46.770Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;ES6-Template-之-Tag-函数&quot;&gt;&lt;a href=&quot;#ES6-Template-之-Tag-函数&quot; class=&quot;headerlink&quot; title=&quot;ES6 Template 之 Tag 函数&quot;&gt;&lt;/a&gt;ES6 Template 之 Tag
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://sunshane.cn/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="JavaScript" scheme="https://sunshane.cn/tags/JavaScript/"/>
+    
+      <category term="ES6" scheme="https://sunshane.cn/tags/ES6/"/>
+    
+      <category term="String" scheme="https://sunshane.cn/tags/String/"/>
+    
+      <category term="Template" scheme="https://sunshane.cn/tags/Template/"/>
+    
+      <category term="Tag" scheme="https://sunshane.cn/tags/Tag/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6 Template 之字符串换行</title>
+    <link href="https://sunshane.cn/archives/229f64b9.html"/>
+    <id>https://sunshane.cn/archives/229f64b9.html</id>
+    <published>2020-07-25T14:49:21.000Z</published>
+    <updated>2020-07-25T15:02:15.604Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;ES6-Template-之字符串换行&quot;&gt;&lt;a href=&quot;#ES6-Template-之字符串换行&quot; class=&quot;headerlink&quot; title=&quot;ES6 Template 之字符串换行&quot;&gt;&lt;/a&gt;ES6 Template 之字符串换行&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://sunshane.cn/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="JavaScript" scheme="https://sunshane.cn/tags/JavaScript/"/>
+    
+      <category term="ES6" scheme="https://sunshane.cn/tags/ES6/"/>
+    
+      <category term="String" scheme="https://sunshane.cn/tags/String/"/>
+    
+      <category term="Template" scheme="https://sunshane.cn/tags/Template/"/>
+    
+  </entry>
   
   <entry>
     <title>ES6 正则之中文问题</title>
@@ -581,68 +649,6 @@
       <category term="ES6" scheme="https://sunshane.cn/tags/ES6/"/>
     
       <category term="Scope" scheme="https://sunshane.cn/tags/Scope/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ES6 Array 之遍历数组的一些方法和方法对比</title>
-    <link href="https://sunshane.cn/archives/c18c9db4.html"/>
-    <id>https://sunshane.cn/archives/c18c9db4.html</id>
-    <published>2020-05-27T14:54:38.000Z</published>
-    <updated>2020-07-25T10:01:15.704Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;遍历数组的方法对比&quot;&gt;&lt;a href=&quot;#遍历数组的方法对比&quot; class=&quot;headerlink&quot; title=&quot;遍历数组的方法对比&quot;&gt;&lt;/a&gt;遍历数组的方法对比&lt;span class=&quot;github-emoji&quot; style=&quot;color:
-        
-      
-    
-    </summary>
-    
-    
-      <category term="前端" scheme="https://sunshane.cn/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="JavaScript" scheme="https://sunshane.cn/tags/JavaScript/"/>
-    
-      <category term="ES6" scheme="https://sunshane.cn/tags/ES6/"/>
-    
-      <category term="Array" scheme="https://sunshane.cn/tags/Array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows 下添加 tree 到 Git Bash 中</title>
-    <link href="https://sunshane.cn/archives/9f75cef.html"/>
-    <id>https://sunshane.cn/archives/9f75cef.html</id>
-    <published>2020-05-10T06:35:46.000Z</published>
-    <updated>2020-05-16T03:15:20.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Windows-下添加-tree-到-Git-Bash-中&quot;&gt;&lt;a href=&quot;#Windows-下添加-tree-到-Git-Bash-中&quot; class=&quot;headerlink&quot; title=&quot;Windows 下添加 tree 到 Git Bash
-        
-      
-    
-    </summary>
-    
-    
-      <category term="前端" scheme="https://sunshane.cn/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="Windows" scheme="https://sunshane.cn/tags/Windows/"/>
-    
-      <category term="Git Bash" scheme="https://sunshane.cn/tags/Git-Bash/"/>
-    
-      <category term="tree" scheme="https://sunshane.cn/tags/tree/"/>
     
   </entry>
   

@@ -4,6 +4,70 @@
   
     
     <entry>
+      <title>ES6 Template 之 Tag 函数</title>
+      <link href="/archives/8f924eb8.html"/>
+      <url>/archives/8f924eb8.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="ES6-Template-之-Tag-函数"><a href="#ES6-Template-之-Tag-函数" class="headerlink" title="ES6 Template 之 Tag 函数"></a>ES6 Template 之 Tag 函数</h1><h2 id="字符串包含变量或表达式"><a href="#字符串包含变量或表达式" class="headerlink" title="字符串包含变量或表达式"></a>字符串包含变量或表达式</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">20</span><span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token number">10</span><span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token string">'javascript'</span><span class="token comment" spellcheck="true">// ES5 的做法：利用字符串拼接的方式</span><span class="token keyword">const</span> str1 <span class="token operator">=</span> <span class="token string">'my age is '</span> <span class="token operator">+</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">', i love '</span> <span class="token operator">+</span> c<span class="token comment" spellcheck="true">// ES6 的做法：使用反引号（`）和 ${}</span><span class="token keyword">const</span> str2 <span class="token operator">=</span> <span class="token template-string"><span class="token string">`my age is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>a <span class="token operator">+</span> b<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, i love </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>c<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// my age is 30, i love javascript</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// my age is 30, i love javascript</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="字符串包含逻辑运算"><a href="#字符串包含逻辑运算" class="headerlink" title="字符串包含逻辑运算"></a>字符串包含逻辑运算</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/* ES5 的做法 */</span><span class="token keyword">const</span> retailPrice <span class="token operator">=</span> <span class="token number">20</span> <span class="token comment" spellcheck="true">// 零售价</span><span class="token keyword">const</span> wholeSalePrice <span class="token operator">=</span> <span class="token number">16</span> <span class="token comment" spellcheck="true">// 批发价</span><span class="token keyword">const</span> type <span class="token operator">=</span> <span class="token string">'retail'</span><span class="token keyword">let</span> showTxt <span class="token operator">=</span> <span class="token string">''</span><span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'retail'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  showTxt <span class="token operator">=</span> <span class="token string">'您此次的购买单价是：'</span> <span class="token operator">+</span> retailPrice<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>  showTxt <span class="token operator">=</span> <span class="token string">'您此次的购买批发价是：'</span> <span class="token operator">+</span> wholeSalePrice<span class="token punctuation">}</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>showTxt<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 您此次的购买单价是：20</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/* ES6 的做法：使用 tag（标签） 函数解决字符串模板问题 */</span><span class="token comment" spellcheck="true">/** * * @param {Array} strings 字符串模板数组 * @param {*} type 变量 */</span><span class="token comment" spellcheck="true">// 定义一个 tag 函数</span><span class="token keyword">function</span> Price <span class="token punctuation">(</span>strings<span class="token punctuation">,</span> type<span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token keyword">let</span> s1 <span class="token operator">=</span> strings<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>  <span class="token keyword">let</span> s2 <span class="token operator">=</span> strings<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>  <span class="token keyword">const</span> retailPrice <span class="token operator">=</span> <span class="token number">20</span> <span class="token comment" spellcheck="true">// 零售价</span>  <span class="token keyword">const</span> wholeSalePrice <span class="token operator">=</span> <span class="token number">16</span> <span class="token comment" spellcheck="true">// 批发价</span>  <span class="token keyword">let</span> showTxt  <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'retail'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    showTxt <span class="token operator">=</span> <span class="token string">'购买单价是：'</span> <span class="token operator">+</span> retailPrice  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>    showTxt <span class="token operator">=</span> <span class="token string">'购买批发价是：'</span> <span class="token operator">+</span> wholeSalePrice  <span class="token punctuation">}</span>  <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>s1<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>showTxt<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>s2<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">// 调用该 tag 函数</span><span class="token keyword">let</span> showTxt <span class="token operator">=</span> Price<span class="token template-string"><span class="token string">`您此次的</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token string">'retail'</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">，全市最低价啊`</span></span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>showTxt<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 您此次的购买单价是：20，全市最低价啊</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+            <tag> ES6 </tag>
+            
+            <tag> String </tag>
+            
+            <tag> Template </tag>
+            
+            <tag> Tag </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ES6 Template 之字符串换行</title>
+      <link href="/archives/229f64b9.html"/>
+      <url>/archives/229f64b9.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="ES6-Template-之字符串换行"><a href="#ES6-Template-之字符串换行" class="headerlink" title="ES6 Template 之字符串换行"></a>ES6 Template 之字符串换行</h1><h2 id="ES5-的做法：使用加号（-）"><a href="#ES5-的做法：使用加号（-）" class="headerlink" title="ES5 的做法：使用加号（+）"></a>ES5 的做法：使用加号（+）</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> s1 <span class="token operator">=</span> <span class="token string">'我是第一行'</span> <span class="token operator">+</span><span class="token string">'我是第二行'</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token comment" spellcheck="true">/* 运行结果：我是第一行我是第二行*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="ES6-的做法：使用一对反引号（-）包裹"><a href="#ES6-的做法：使用一对反引号（-）包裹" class="headerlink" title="ES6 的做法：使用一对反引号（``）包裹"></a>ES6 的做法：使用一对反引号（``）包裹</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> s1 <span class="token operator">=</span> <span class="token template-string"><span class="token string">`我是第一行我是第二行`</span></span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token comment" spellcheck="true">/* 运行结果：我是第一行我是第二行*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+            <tag> ES6 </tag>
+            
+            <tag> String </tag>
+            
+            <tag> Template </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ES6 正则之中文问题</title>
       <link href="/archives/e175891d.html"/>
       <url>/archives/e175891d.html</url>
