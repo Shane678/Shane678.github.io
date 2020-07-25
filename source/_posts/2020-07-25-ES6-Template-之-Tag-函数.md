@@ -9,9 +9,11 @@ tags:
 categories:
   - 前端
 author: Shane
-img: 'https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/40.jpg'
+img: >-
+  https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/40.jpg
 toc: true
 summary: ES5 中字符串包含变量或表达式、包含逻辑运算怎么办？ES6 有更优雅便捷的方式吗？
+abbrlink: 8f924eb8
 date: 2020-07-25 22:49:39
 ---
 
