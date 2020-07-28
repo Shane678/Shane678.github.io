@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ES6 Template 之 Tag 函数, 俊杰的博客">
+    <meta name="keywords" content="ES6 Destructure 之数组（Array）的解构赋值, 俊杰的博客">
     <meta name="description" content="JIT | 网络与通信工程 | 通信工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ES6 Template 之 Tag 函数 | 俊杰的博客</title>
+    <title>ES6 Destructure 之数组（Array）的解构赋值 | 俊杰的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -376,12 +376,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/40.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/41.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ES6 Template 之 Tag 函数</h1>
+                    <h1 class="description center-align post-title">ES6 Destructure 之数组（Array）的解构赋值</h1>
                 </div>
             </div>
         </div>
@@ -515,16 +515,8 @@
                                 <span class="chip bg-color">ES6</span>
                             </a>
                         
-                            <a href="/tags/String/">
-                                <span class="chip bg-color">String</span>
-                            </a>
-                        
-                            <a href="/tags/Template/">
-                                <span class="chip bg-color">Template</span>
-                            </a>
-                        
-                            <a href="/tags/Tag/">
-                                <span class="chip bg-color">Tag</span>
+                            <a href="/tags/Destructure/">
+                                <span class="chip bg-color">Destructure</span>
                             </a>
                         
                     </div>
@@ -548,21 +540,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-25
+                    2020-07-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-25
+                    2020-07-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    341
+                    883
                 </div>
                 
 
@@ -575,7 +567,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -589,51 +581,68 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ES6-Template-之-Tag-函数"><a href="#ES6-Template-之-Tag-函数" class="headerlink" title="ES6 Template 之 Tag 函数"></a>ES6 Template 之 Tag 函数</h1><h2 id="字符串包含变量或表达式"><a href="#字符串包含变量或表达式" class="headerlink" title="字符串包含变量或表达式"></a>字符串包含变量或表达式</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">20</span>
-<span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token number">10</span>
-<span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token string">'javascript'</span>
-<span class="token comment" spellcheck="true">// ES5 的做法：利用字符串拼接的方式</span>
-<span class="token keyword">const</span> str1 <span class="token operator">=</span> <span class="token string">'my age is '</span> <span class="token operator">+</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">', i love '</span> <span class="token operator">+</span> c
-<span class="token comment" spellcheck="true">// ES6 的做法：使用反引号（`）和 ${}</span>
-<span class="token keyword">const</span> str2 <span class="token operator">=</span> <span class="token template-string"><span class="token string">`my age is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>a <span class="token operator">+</span> b<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, i love </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>c<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// my age is 30, i love javascript</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// my age is 30, i love javascript</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="字符串包含逻辑运算"><a href="#字符串包含逻辑运算" class="headerlink" title="字符串包含逻辑运算"></a>字符串包含逻辑运算</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/* ES5 的做法 */</span>
+                <h1 id="ES6-Destructure-之数组（Array）的解构赋值"><a href="#ES6-Destructure-之数组（Array）的解构赋值" class="headerlink" title="ES6 Destructure 之数组（Array）的解构赋值"></a>ES6 Destructure 之数组（Array）的解构赋值</h1><h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0 前言"></a>0 前言</h2><p>从一个复杂的数据结构中提取数据，在 ES5 中需要层层遍历或者是引用；而 ES6 中可以使用解构赋值的方式更便捷地提取数据。</p>
+<p>下面我们先就 Array 的解构赋值进行说明</p>
+<h2 id="1-简单变量的解构赋值"><a href="#1-简单变量的解构赋值" class="headerlink" title="1 简单变量的解构赋值"></a>1 简单变量的解构赋值</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// ES5 时从数组中取数据</span>
+<span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token string">'world'</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> firstName <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> surName <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>firstName<span class="token punctuation">,</span> surName<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// hello world</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// ES6 时从数组中取数据</span>
+<span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token string">'world'</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>firstName<span class="token punctuation">,</span> surName<span class="token punctuation">]</span> <span class="token operator">=</span> arr <span class="token comment" spellcheck="true">// （简单变量的）解构赋值</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>firstName<span class="token punctuation">,</span> surName<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// hello world</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-跳过不关心的数据去解构赋值"><a href="#2-跳过不关心的数据去解构赋值" class="headerlink" title="2 跳过不关心的数据去解构赋值"></a>2 跳过不关心的数据去解构赋值</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>firstName<span class="token punctuation">,</span> <span class="token punctuation">,</span> thirdName<span class="token punctuation">]</span> <span class="token operator">=</span> arr <span class="token comment" spellcheck="true">// 只把数组的第一、三项取出来赋值</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>firstName<span class="token punctuation">,</span> thirdName<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// a c</span>
+<span class="token comment" spellcheck="true">// 如上，如果想跳过某项不关心的数据，可以通过不写变量同时保留逗号（,）实现。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-解构赋值的条件"><a href="#3-解构赋值的条件" class="headerlink" title="3 解构赋值的条件"></a>3 解构赋值的条件</h2><p>只要是可遍历的对象就能进行解构赋值</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 什么时候可以解构赋值呢？</span>
+<span class="token comment" spellcheck="true">// 只要是可遍历的对象（Array、Object、String、Set、Map......）就能进行解构赋值</span>
+<span class="token comment" spellcheck="true">// 左侧要使用中括号（[]）</span>
+<span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token string">'abcd'</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>firstName<span class="token punctuation">,</span> <span class="token punctuation">,</span> thirdName<span class="token punctuation">]</span> <span class="token operator">=</span> arr
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>firstName<span class="token punctuation">,</span> thirdName<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// a c</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>firstName2<span class="token punctuation">,</span> <span class="token punctuation">,</span> thirdName2<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>firstName2<span class="token punctuation">,</span> thirdName2<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 1 3</span>
 
-<span class="token keyword">const</span> retailPrice <span class="token operator">=</span> <span class="token number">20</span> <span class="token comment" spellcheck="true">// 零售价</span>
-<span class="token keyword">const</span> wholeSalePrice <span class="token operator">=</span> <span class="token number">16</span> <span class="token comment" spellcheck="true">// 批发价</span>
-<span class="token keyword">const</span> type <span class="token operator">=</span> <span class="token string">'retail'</span>
-<span class="token keyword">let</span> showTxt <span class="token operator">=</span> <span class="token string">''</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'retail'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  showTxt <span class="token operator">=</span> <span class="token string">'您此次的购买单价是：'</span> <span class="token operator">+</span> retailPrice
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-  showTxt <span class="token operator">=</span> <span class="token string">'您此次的购买批发价是：'</span> <span class="token operator">+</span> wholeSalePrice
+<span class="token comment" spellcheck="true">// 总结：初步理解结构赋值：解构赋值的右边是一个可遍历的对象，</span>
+<span class="token comment" spellcheck="true">// 左边是一个中括号，中括号里是声明的新的变量，这些变量会默认按照索引的顺序去取值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4-把数据赋值到对象的属性上"><a href="#4-把数据赋值到对象的属性上" class="headerlink" title="4 把数据赋值到对象的属性上"></a>4 把数据赋值到对象的属性上</h2><p>如果左边不新生成变量，而是把需要的数据赋值到一个对象的属性上去，是否可以呢？</p>
+<p>当然可以，如下：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'s'</span><span class="token punctuation">,</span> surName<span class="token punctuation">:</span> <span class="token string">'t'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span>user<span class="token punctuation">.</span>name<span class="token punctuation">,</span> user<span class="token punctuation">.</span>surName<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">// （对象属性的）解构赋值</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// {name: 1, surName: 2}</span>
+<span class="token comment" spellcheck="true">// 可见，解构赋值不仅可以赋值给简单的变量，还可以赋值给对象的属性，</span>
+<span class="token comment" spellcheck="true">// 需要注意的是，赋值给对象的属性时，不需要用 let/var/const 进行声明。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="5-循环体中的解构赋值"><a href="#5-循环体中的解构赋值" class="headerlink" title="5 循环体中的解构赋值"></a>5 循环体中的解构赋值</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// ES5 时</span>
+<span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token string">'world'</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> item<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 声明一个临时变量 item，用来保存数据</span>
+  item <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// ES6 时</span>
+<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'s'</span><span class="token punctuation">,</span> surName<span class="token punctuation">:</span> <span class="token string">'t'</span> <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// for of 后面要求是可遍历的对象（Array/Set/Map......）</span>
+<span class="token comment" spellcheck="true">// Object.entries() 方法可以把对象转换成可遍历的 key-value 形式</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>k<span class="token punctuation">,</span> v<span class="token punctuation">]</span> <span class="token keyword">of</span> Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 循环体内的解构赋值体现在这里的 let [k, v] 上</span>
+  <span class="token comment" spellcheck="true">// 隐式赋值（背后还是索引在工作，但是我们不需要书写，区别于之前形如 arr[1] 的显式索引）</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> v<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>showTxt<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 您此次的购买单价是：20</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/* ES6 的做法：使用 tag（标签） 函数解决字符串模板问题 */</span>
-
-<span class="token comment" spellcheck="true">/**
- *
- * @param {Array} strings 字符串模板数组
- * @param {*} type 变量
- */</span>
-<span class="token comment" spellcheck="true">// 定义一个 tag 函数</span>
-<span class="token keyword">function</span> Price <span class="token punctuation">(</span>strings<span class="token punctuation">,</span> type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">let</span> s1 <span class="token operator">=</span> strings<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-  <span class="token keyword">let</span> s2 <span class="token operator">=</span> strings<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-  <span class="token keyword">const</span> retailPrice <span class="token operator">=</span> <span class="token number">20</span> <span class="token comment" spellcheck="true">// 零售价</span>
-  <span class="token keyword">const</span> wholeSalePrice <span class="token operator">=</span> <span class="token number">16</span> <span class="token comment" spellcheck="true">// 批发价</span>
-  <span class="token keyword">let</span> showTxt
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'retail'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    showTxt <span class="token operator">=</span> <span class="token string">'购买单价是：'</span> <span class="token operator">+</span> retailPrice
-  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    showTxt <span class="token operator">=</span> <span class="token string">'购买批发价是：'</span> <span class="token operator">+</span> wholeSalePrice
-  <span class="token punctuation">}</span>
-  <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>s1<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>showTxt<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>s2<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 调用该 tag 函数</span>
-<span class="token keyword">let</span> showTxt <span class="token operator">=</span> Price<span class="token template-string"><span class="token string">`您此次的</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token string">'retail'</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">，全市最低价啊`</span></span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>showTxt<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 您此次的购买单价是：20，全市最低价啊</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true">/* 运行结果：
+name s
+surName t
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-解构赋值对于-Rest-变量的处理"><a href="#6-解构赋值对于-Rest-变量的处理" class="headerlink" title="6 解构赋值对于 Rest 变量的处理"></a>6 解构赋值对于 Rest 变量的处理</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>firstName<span class="token punctuation">,</span> curName<span class="token punctuation">,</span> <span class="token operator">...</span>last<span class="token punctuation">]</span> <span class="token operator">=</span> arr <span class="token comment" spellcheck="true">// 使用 Rest 变量进行解构赋值</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>firstName<span class="token punctuation">,</span> curName<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 1 2</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>last<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// (7) [3, 4, 5, 6, 7, 8, 9]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>firstName<span class="token punctuation">,</span> curName<span class="token punctuation">,</span> <span class="token operator">...</span>last<span class="token punctuation">]</span> <span class="token operator">=</span> arr
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>firstName<span class="token punctuation">,</span> curName<span class="token punctuation">,</span> last<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// undefined undefined []</span>
+<span class="token comment" spellcheck="true">// 可见，当数据量不够，变量没有对应数据时，通过解构赋值得到的变量值就跟没有赋值的情况一样，是 undefined。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="7-解构赋值设置默认值"><a href="#7-解构赋值设置默认值" class="headerlink" title="7 解构赋值设置默认值"></a>7 解构赋值设置默认值</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>firstName <span class="token operator">=</span> <span class="token string">'hello'</span><span class="token punctuation">,</span> curName<span class="token punctuation">,</span> <span class="token operator">...</span>last<span class="token punctuation">]</span> <span class="token operator">=</span> arr <span class="token comment" spellcheck="true">// 设置变量 firstName 的默认值为 "hello"</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>firstName<span class="token punctuation">,</span> curName<span class="token punctuation">,</span> last<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// hello undefined []</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -677,7 +686,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sunshane.cn/archives/8f924eb8.html">https://sunshane.cn/archives/8f924eb8.html</a>
+                    <a href="https://sunshane.cn/archives/3ec741fe.html">https://sunshane.cn/archives/3ec741fe.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -723,16 +732,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
                                     <span class="chip bg-color">ES6</span>
                                 </a>
                             
-                                <a href="/tags/String/">
-                                    <span class="chip bg-color">String</span>
-                                </a>
-                            
-                                <a href="/tags/Template/">
-                                    <span class="chip bg-color">Template</span>
-                                </a>
-                            
-                                <a href="/tags/Tag/">
-                                    <span class="chip bg-color">Tag</span>
+                                <a href="/tags/Destructure/">
+                                    <span class="chip bg-color">Destructure</span>
                                 </a>
                             
                         </div>
@@ -903,7 +904,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
         repo: 'Shane678.github.io',
         owner: 'Shane678',
         admin: "Shane678",
-        id: '2020-07-25T22-49-39',
+        id: '2020-07-28T20-34-16',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1194,12 +1195,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/archives/3ec741fe.html">
+                <a href="/archives/f4807b2f.html">
                     <div class="card-image">
                         
-                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/41.jpg" class="responsive-img" alt="ES6 Destructure 之数组（Array）的解构赋值">
+                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/42.jpg" class="responsive-img" alt="ES6 Destructure 之对象（Object）的解构赋值">
                         
-                        <span class="card-title">ES6 Destructure 之数组（Array）的解构赋值</span>
+                        <span class="card-title">ES6 Destructure 之对象（Object）的解构赋值</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1250,18 +1251,18 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/archives/229f64b9.html">
+                <a href="/archives/8f924eb8.html">
                     <div class="card-image">
                         
-                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/39.jpg" class="responsive-img" alt="ES6 Template 之字符串换行">
+                        <img src="https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/40.jpg" class="responsive-img" alt="ES6 Template 之 Tag 函数">
                         
-                        <span class="card-title">ES6 Template 之字符串换行</span>
+                        <span class="card-title">ES6 Template 之 Tag 函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ES5 中字符串换行怎么办？ES6 有更优雅便捷的方式吗？
+                            ES5 中字符串包含变量或表达式、包含逻辑运算怎么办？ES6 有更优雅便捷的方式吗？
                         
                     </div>
                     <div class="publish-info">
@@ -1297,6 +1298,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     
                     <a href="/tags/Template/">
                         <span class="chip bg-color">Template</span>
+                    </a>
+                    
+                    <a href="/tags/Tag/">
+                        <span class="chip bg-color">Tag</span>
                     </a>
                     
                 </div>
