@@ -11,6 +11,7 @@ img: >-
   https://myimagebed-1302088591.cos.ap-nanjing.myqcloud.com/%E6%96%87%E7%AB%A0%E7%89%B9%E5%BE%81%E5%9B%BE/41.jpg
 toc: true
 summary: ES5 从一个复杂的数据结构中提取数据是如何做的？ES6 有更优雅便捷的方式吗？
+abbrlink: 3ec741fe
 date: 2020-07-28 20:34:16
 ---
 
