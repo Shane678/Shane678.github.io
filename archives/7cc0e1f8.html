@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="俊杰的博客" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="俊杰的博客" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -547,7 +547,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-25
+                    2020-11-15
                 </div>
                 
 
@@ -634,7 +634,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 实际上，Object.assign() 实现的是浅复制（对于不是引用类型的值，会进行数据的替换，
 对于引用类型的值，则不再遍历，只是将引用的对象的地址进行了替换），而不是深复制，
 所以才会出现上面的问题（a 是个对象，属于引用类型的值，所以在拷贝时拷贝的是地址值，
-也就是把源对象中 a 的地址值替换掉了目标对象中 a 的地址值，a 里面的数据也就完全被替换掉了）
+也就是用源对象中 a 的地址值替换掉了目标对象中 a 的地址值，a 里面的数据也就完全被替换掉了）
 所以呢，使用 Object.assign(target, source) 时，source 到 target 的拷贝过程中，
 可能会出现数据丢失的情况，就是它不能实现深拷贝，只能实现浅拷贝。
 如果在使用 Object.assign() 时想要实现深拷贝，则还需要进行递归

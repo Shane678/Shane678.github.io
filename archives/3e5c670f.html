@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="俊杰的博客" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="俊杰的博客" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -547,7 +547,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-25
+                    2020-11-15
                 </div>
                 
 
@@ -614,7 +614,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>总结：<br>知识点 1：ES5 中，用 arguments 获取到所有参数；<br>知识点 2：arguments 是伪数组，可以用 Array 原型链的 forEach，然后使用 call 方法，对 arguments 进行遍历；也可以用 ES6 的 Array.from 方法对 arguments 进行遍历。</p>
 </blockquote>
-<h3 id="2-ES6"><a href="#2-ES6" class="headerlink" title="2. ES6"></a>2. ES6</h3><p>ES6 中使用 Rest parameter（Rest 参数，形如“…参数名”）替代使用 arguments 的方法，Rest 参数接收函数的多余参数，组成一个<strong><em>数组</em></strong>，放在形参的最后，形式如下：</p>
+<h3 id="2-ES6"><a href="#2-ES6" class="headerlink" title="2. ES6"></a>2. ES6</h3><p>ES6 中使用 Rest parameter（Rest 参数，形如<code>...参数名</code>）替代使用 arguments 的方法，Rest 参数接收函数的多余参数，组成一个<strong><em>数组</em></strong>，放在形参的最后，形式如下：</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> sum <span class="token punctuation">(</span><span class="token operator">...</span>nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">let</span> num <span class="token operator">=</span> <span class="token number">0</span>
   nums<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// nums 是个数组，直接使用 forEach</span>
