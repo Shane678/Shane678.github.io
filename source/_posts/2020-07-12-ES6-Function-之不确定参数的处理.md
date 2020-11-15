@@ -63,7 +63,7 @@ console.log(sum(1, 2, 3)) // 6
 
 ### 2. ES6
 
-ES6 中使用 Rest parameter（Rest 参数，形如“...参数名”）替代使用 arguments 的方法，Rest 参数接收函数的多余参数，组成一个***数组***，放在形参的最后，形式如下：
+ES6 中使用 Rest parameter（Rest 参数，形如`...参数名`）替代使用 arguments 的方法，Rest 参数接收函数的多余参数，组成一个***数组***，放在形参的最后，形式如下：
 
 ```javascript
 function sum (...nums) {

@@ -56,7 +56,7 @@ console.log(firstName, thirdName) // a c
 ```javascript
 // 什么时候可以解构赋值呢？
 // 只要是可遍历的对象（Array、Object、String、Set、Map......）就能进行解构赋值
-// 左侧要使用中括号（[]）
+// 左侧要使用中括号（[]）（对象使用大括号“{}”）
 let arr = 'abcd'
 let [firstName, , thirdName] = arr
 console.log(firstName, thirdName) // a c
@@ -64,7 +64,7 @@ let [firstName2, , thirdName2] = new Set([1, 2, 3, 4])
 console.log(firstName2, thirdName2) // 1 3
 
 // 总结：初步理解结构赋值：解构赋值的右边是一个可遍历的对象，
-// 左边是一个中括号，中括号里是声明的新的变量，这些变量会默认按照索引的顺序去取值
+// 左边是一个中括号（对象使用大括号），中括号（对象使用大括号）里是声明的新的变量，这些变量会默认按照索引的顺序去取值
 ```
 
 ## 4 把数据赋值到对象的属性上
